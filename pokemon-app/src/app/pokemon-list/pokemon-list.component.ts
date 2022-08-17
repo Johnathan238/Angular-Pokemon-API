@@ -9,18 +9,25 @@ import { ConfigService } from '../service/config.service';
 })
 export class PokemonListComponent implements OnInit {
   pkeData: Config[] = []
-  config: { name: string; url: string; } | undefined;
+  // config: { name: string; url: string; } | undefined;
 
 
-  constructor(private ConfigService: ConfigService) { }
+  constructor(private configService: ConfigService) { }
 
-  showPkeData(){
-    this.ConfigService.getConfig()
-    .subscribe((data) => this.pkeData = this.pkeData)
-  }
+  // showPkeData(){
+  //   this.ConfigService.getConfig()
+  //   .subscribe((data) => this.pkeData = this.pkeData)
+  // }
 
   ngOnInit(): void {
-    console.log(this.pkeData);
+    this.configService.getConfig()
+    .subscribe((response: any) => {
+      response.results.forEach((result: any) => {
+        console.log(result);
+        this.pkeData.push(result)
+      })
+    })
   }
-
 }
+
+// this.pkeData.push(responses.results)
