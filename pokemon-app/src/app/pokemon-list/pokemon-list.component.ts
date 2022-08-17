@@ -28,6 +28,12 @@ export class PokemonListComponent implements OnInit {
       })
     })
   }
+
+  onScroll() {
+    if(this.configService.limit === 25){
+      this.configService.limit
+    }
+  }
 }
 
 // this.pkeData.push(responses.results)

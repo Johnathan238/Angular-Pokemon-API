@@ -9,7 +9,8 @@ import { Config } from '../interface/config';
   providedIn: 'root'
 })
 export class ConfigService {
-  configUrl = `https://pokeapi.co/api/v2/pokemon?limit=55&offset=0`;
+  configUrl = `https://pokeapi.co/api/v2/pokemon?limit=50&offset=0`;
+  limit = `https://pokeapi.co/api/v2/pokemon?limit=${Number}`
 
   constructor(private http: HttpClient) { }
 
